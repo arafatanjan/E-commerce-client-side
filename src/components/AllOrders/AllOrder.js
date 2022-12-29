@@ -5,7 +5,7 @@ const AllOrder = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://arafatanjan-ecommerce.onrender.com/orders')
             // fetch('https://cryptic-tor-20048.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setUsers(data));

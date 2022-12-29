@@ -15,7 +15,7 @@ const UserOrder = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/orders/${user?.email}`)
+            fetch(`https://arafatanjan-ecommerce.onrender.com/orders/${user?.email}`)
                 // fetch(`https://cryptic-tor-20048.herokuapp.com/orders/${user?.email}`)
                 .then(res => res.json())
                 .then(data => setSingleorder(data))
@@ -28,7 +28,7 @@ const UserOrder = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/${id}`
+            const url = `https://arafatanjan-ecommerce.onrender.com/${id}`
             fetch(url, {
                 method: 'DELETE',
                 headers: { "content-type": "application/json" },
@@ -51,10 +51,10 @@ const UserOrder = () => {
     //     const data = singleorder[index];
     //     // data.status = 'updated';
     //     console.log(singleorder[index])
-    //     const url = `http://localhost:5000/orders/${id}`
+    //     const url = `https://arafatanjan-ecommerce.onrender.com/orders/${id}`
     //     console.log(url)
     //     // useEffect(() => {
-    //     fetch(`http://localhost:5000/orders/update/${id}`, {
+    //     fetch(`https://arafatanjan-ecommerce.onrender.com/orders/update/${id}`, {
     //         //  method: "POST",
     //         //  headers: { 'content-type': 'application/json' },
     //         // body: JSON.stringify(data),

@@ -28,7 +28,7 @@ const Usefirebase = () => {
                 reset();
                 // navigate(from, { replace: true });
                 setError('');
-                reset();
+                // navigate('/home');
                 // Signed in 
                 const user = userCredential.user;
                 // ...
@@ -114,7 +114,7 @@ const Usefirebase = () => {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://arafatanjan-ecommerce.onrender.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)
@@ -131,7 +131,7 @@ const Usefirebase = () => {
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://arafatanjan-ecommerce.onrender.com/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

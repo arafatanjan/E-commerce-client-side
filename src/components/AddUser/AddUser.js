@@ -3,6 +3,8 @@ import React, { useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
+//for testing
+
 const AddUser = () => {
     const { serviceId } = useParams();
     const nameRef = useRef();
@@ -13,7 +15,7 @@ const AddUser = () => {
         const newUser = { serviceId };
         // const newUser = { name, email };
         // console.log(newUser);
-        fetch('http://localhost:5000/users', {
+        fetch('https://arafatanjan-ecommerce.onrender.com/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

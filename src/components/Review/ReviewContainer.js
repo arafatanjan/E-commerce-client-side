@@ -5,7 +5,7 @@ import './Rating.css'
 const ReviewContainer = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://arafatanjan-ecommerce.onrender.com/reviews')
             // fetch('https://cryptic-tor-20048.herokuapp.com/services')
             // fetch('services.json')
             .then(res => res.json())

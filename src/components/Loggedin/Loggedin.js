@@ -19,11 +19,12 @@ const auth = getAuth();
 
 
 const Loggedin = () => {
-    const { reset } = useForm();
+    // const { reset } = useForm();
     const { signInUsingGoole } = Usefirebase();
     const { user, registerUser, processlogin, error } = useAuth();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     // const location = useLocation();
+    
     const [isLoading, setIsLoading] = useState(false);
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -36,12 +37,12 @@ const Loggedin = () => {
         email: "",
         uid: "",
     });
-    const handleSignOut = () => {
-        signOut(auth)
-            .then(() => {
-                setUsers({});
-            })
-    }
+    // const handleSignOut = () => {
+    //     signOut(auth)
+    //         .then(() => {
+    //             setUsers({});
+    //         })
+    // }
 
     const toggleLogin = e => {
         setIslogin(e.target.checked);
@@ -75,56 +76,9 @@ const Loggedin = () => {
         islogin ? processlogin(email, password) : registerUser(name, email, password);
         e.preventDefault();
         e.target.reset();
-
+        // navigate("/home");
     }
-    // function processlogin(email, password) {
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then(result => {
-    //             // Signed in 
-    //             const user = result.email;
-    //             const password = result.password;
-    //             // (user);
-    //             createNewUser(email, password);
-    //             setError('');
-    //             // ...
-
-    //             // if (!user.email) {
-    //             //     setError('Wrong Mail')
-    //             //     return;
-    //             // }
-    //             if (user.email) {
-    //                 navigate('/home');
-    //             }
-    //         })
-    //         .catch((error) => {
-
-    //             const errorMessage = error.message;
-    //             // (errorMessage);
-    //             setError(errorMessage)
-    //             // return
-    //         })
-    //         .finally(() => setIsLoading(false));
-    // }
-    // function createNewUser(email, password) {
-    //     setIsLoading(true);
-    //     createUserWithEmailAndPassword(auth, email, password)
-    //         .then(result => {
-    //             // Signed in 
-    //             const user = result.user;
-    //             // 
-    //             setError('');
-    //             // ...
-    //             verifyEmail();
-    //         })
-    //         .catch((error) => {
-
-    //             const errorMessage = error.message;
-    //             setError(errorMessage);
-    //             // ..
-    //         })
-    //         .finally(() => setIsLoading(false));
-    // }
-    // }
+   
 
 
     return (
@@ -175,7 +129,8 @@ const Loggedin = () => {
                 <button type="submit" className="btn btn-primary">{islogin ? 'Login' : 'Register'}</button>
             </form>}
             {isLoading && <CircularProgress />}
-            {user?.email && <Alert severity="info">You are registered successfully</Alert>}
+            {user?.email && islogin ? <Alert severity="info">You are loggedin successfully</Alert> : null}
+            {user?.email && !islogin ? <Alert severity="info">You are registered successfully</Alert>: null}
             {error && <Alert severity="error">{error}</Alert>}
             <br />
             <br />
@@ -203,3 +158,62 @@ const Loggedin = () => {
 
 
 export default Loggedin;
+
+
+
+
+
+
+
+
+
+
+
+ // function processlogin(email, password) {
+    //     signInWithEmailAndPassword(auth, email, password)
+    //         .then(result => {
+    //             // Signed in 
+    //             const user = result.email;
+    //             const password = result.password;
+    //             // (user);
+    //             createNewUser(email, password);
+    //             setError('');
+    //             // ...
+
+    //             // if (!user.email) {
+    //             //     setError('Wrong Mail')
+    //             //     return;
+    //             // }
+    //             if (user.email) {
+    //                 navigate('/home');
+    //             }
+    //         })
+    //         .catch((error) => {
+
+    //             const errorMessage = error.message;
+    //             // (errorMessage);
+    //             setError(errorMessage)
+    //             // return
+    //         })
+    //         .finally(() => setIsLoading(false));
+    // }
+    // function createNewUser(email, password) {
+    //     setIsLoading(true);
+    //     createUserWithEmailAndPassword(auth, email, password)
+    //         .then(result => {
+    //             // Signed in 
+    //             const user = result.user;
+    //             // 
+    //             setError('');
+    //             // ...
+    //             verifyEmail();
+    //         })
+    //         .catch((error) => {
+
+    //             const errorMessage = error.message;
+    //             setError(errorMessage);
+    //             // ..
+    //         })
+    //         .finally(() => setIsLoading(false));
+    // }
+    // }

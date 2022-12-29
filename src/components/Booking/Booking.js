@@ -17,7 +17,7 @@ const Booking = () => {
     const status = 'pending';
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${serviceId}`)
+        fetch(`https://arafatanjan-ecommerce.onrender.com/services/${serviceId}`)
             // fetch(`https://cryptic-tor-20048.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data));
@@ -29,7 +29,7 @@ const Booking = () => {
         const newUser = { a, b, email, status };
         // console.log(newUser);
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://arafatanjan-ecommerce.onrender.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -59,7 +59,7 @@ const Booking = () => {
             <br />
             <h2> {a}   </h2>
             <p>{service.explanation}   </p>
-            <h2>For booking please fillup your address</h2>
+            <h2>For purchasing please fillup your address</h2>
             <br />
             <Form onSubmit={handleAddUser} >
                 <Row className="mb-3 px-5">

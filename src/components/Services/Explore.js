@@ -7,7 +7,7 @@ const Explore = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://arafatanjan-ecommerce.onrender.com/services')
             // fetch('https://cryptic-tor-20048.herokuapp.com/services')
             // fetch('services.json')
             .then(res => res.json())

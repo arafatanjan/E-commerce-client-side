@@ -15,7 +15,7 @@ const Review = () => {
     // const element = <FontAwesomeIcon icon={fa - solid fa-star} />
     const onSubmit = data => {
         // console.log(data)
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://arafatanjan-ecommerce.onrender.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Thanks for your review')

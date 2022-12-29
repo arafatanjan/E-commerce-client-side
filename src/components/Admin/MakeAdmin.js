@@ -10,7 +10,8 @@ const MakeAdmin = () => {
     const handleAdminSubmit = e => {
         const user = { email };
         // console.log(user);
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://arafatanjan-ecommerce.onrender.com/users/admin', {
+            // fetch('https:/my-node-jade.vercel.app/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

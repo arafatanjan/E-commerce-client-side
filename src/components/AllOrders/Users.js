@@ -9,7 +9,7 @@ const Users = () => {
     const { user } = useAuth();
     // console.log(singleorder)
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://arafatanjan-ecommerce.onrender.com/orders')
             .then(res => res.json())
             .then(data => setSingleorder(data));
     }, [singleorder]);
@@ -18,8 +18,8 @@ const Users = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            // const url = `http://localhost:5000/orders/${id}`
-            const url = `http://localhost:5000/orders/${id}`
+            // const url = `https://arafatanjan-ecommerce.onrender.com/orders/${id}`
+            const url = `https://arafatanjan-ecommerce.onrender.com/orders/${id}`
             fetch(url, {
                 method: 'DELETE',
                 headers: { "content-type": "application/json" },
@@ -44,10 +44,10 @@ const Users = () => {
         const data = singleorder[index];
         // data.status = 'updated';
         // console.log(singleorder[index])
-        const url = `http://localhost:5000/orders/${id}`
+        const url = `https://arafatanjan-ecommerce.onrender.com/orders/${id}`
         // console.log(url)
         // useEffect(() => {
-        fetch(`http://localhost:5000/orders/update/${id}`, {
+        fetch(`https://arafatanjan-ecommerce.onrender.com/orders/update/${id}`, {
             //  method: "POST",
             //  headers: { 'content-type': 'application/json' },
             // body: JSON.stringify(data),

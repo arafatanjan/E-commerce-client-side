@@ -71,7 +71,7 @@ const Header = () => {
                         <label for="my-drawer-2" class="btn btn-light text-black text-decoration-none mt-0 pt-0 margin-left-100px lg:hidden">Open drawer</label>
                     </div> */}
                     {!admin ?
-                        <label for="my-drawer-2" class="btn btn-light text-black text-decoration-none mt-0 pt-0 margin-left-100px lg:hidden">Drawer</label> : null}
+                        <label for="my-drawer-3" class="btn btn-light text-black text-decoration-none mt-0 pt-0 margin-left-100px lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></label> : null}
                 </Container>
 
             </Navbar>

@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import About from './components/About/About';
 import Notfound from './components/Notfound/Notfound';
 import Services from './components/Services/Services';
 import Footer from './components/Footer/Footer';
@@ -44,13 +43,7 @@ function App() {
 
             </Route>
             <Route path='home' element={<Home></Home>}>
-
             </Route>
-
-            <Route exact path='about' element={<About></About>}>
-
-            </Route>
-
             <Route path='services' element={<Services></Services>}>
             </Route>
             <Route path="users/add" element={<AddUser></AddUser>}>
@@ -61,8 +54,7 @@ function App() {
             </Route>
             {/* <Route path="manageservices" element={<ManageServices></ManageServices>}>
             </Route> */}
-            <Route path="payment" element={<Payment></Payment>}>
-            </Route>
+
             <Route path="/dashboard/makeAdmin" element={<MakeAdmin></MakeAdmin>}>
             </Route>
             <Route path="/explore" element={<Explore></Explore>}>
@@ -76,6 +68,8 @@ function App() {
               <Route index element={<UserOrder></UserOrder>}>
               </Route>
               <Route exact path='dashboard/reviews' element={<Review></Review>}>
+              </Route>
+              <Route exact path='dashboard/payment' element={<Payment></Payment>}>
               </Route>
             </Route>
             {/* <Route path="/users/add" element={<AddUser></AddUser>}></Route> */}

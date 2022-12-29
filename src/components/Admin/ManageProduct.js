@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 const ManageProduct = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://arafatanjan-ecommerce.onrender.com/services')
             // fetch('https://cryptic-tor-20048.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
     const handleDelete = id => {
-        const url = `http://localhost:5000/services/${id}`;
+        const url = `https://arafatanjan-ecommerce.onrender.com/services/${id}`;
         // const url = `https://cryptic-tor-20048.herokuapp.com/${id}`;
         fetch(url, {
             method: 'DELETE'
@@ -34,15 +34,17 @@ const ManageProduct = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Product</th>
-                            <th>Client</th>
-                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                            <th>Operation</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             services.map(service => <tr key={service._id}>
                                 <th>{service.name}</th>
+                                <td></td>
+                                <td></td>
                                 <td><button className='btn btn-primary btn-sm mb-3' onClick={() => handleDelete(service._id)}>Delete</button></td>
 
                             </tr>)
