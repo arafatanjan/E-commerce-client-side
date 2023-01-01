@@ -22,9 +22,9 @@ const Loggedin = () => {
     // const { reset } = useForm();
     const { signInUsingGoole } = Usefirebase();
     const { user, registerUser, processlogin, error } = useAuth();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     // const location = useLocation();
-    
+
     const [isLoading, setIsLoading] = useState(false);
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -47,47 +47,26 @@ const Loggedin = () => {
     const toggleLogin = e => {
         setIslogin(e.target.checked);
     }
-    // const verifyEmail = () => {
-    //     sendEmailVerification(auth.currentUser)
-    //         .then(result => {
-    //             // Email verification sent!
-    //             // ...
-    //             // console.log(result);
-    //         });
-    // }
 
-    // const navigate = useNavigate();
     const handleRegitrtion = e => {
 
 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         const name = nameRef.current.value;
-        // console.log(name, email, password);
-        //     if (password.length < 6) {
-        //         setError('Pasword must be 6')
-        //         return;
-        //     }
-        //     if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-        //         setError('Password must contain 2 uppercase')
-        //         return;
-        //     }
-        //registerUser(email, password);
+
         islogin ? processlogin(email, password) : registerUser(name, email, password);
         e.preventDefault();
         e.target.reset();
         // navigate("/home");
     }
-   
+
 
 
     return (
 
         <div className="container mx-auto w-50">
-            {/* <h3 className='text-primary my-2'>Please {islogin ? 'Login' : 'Register'}</h3>
 
-            <br />
-            <br /> */}
             <h3 className='text-primary my-2'>Please {islogin ? 'Login' : 'Register'}</h3>
             {!isLoading && <form onSubmit={handleRegitrtion}>
 
@@ -111,9 +90,7 @@ const Loggedin = () => {
                     <div className="col-sm-10">
                         <input type="password" placeholder='Enter Password' ref={passwordRef} className="form-control" id="inputPassword3" required />
                     </div>
-                    {/* <div className="col-sm-10">
-                        <input onBlur={handlePasswordChange} type="password" placeholder='Enter Password' ref={passwordRef} className="form-control" id="inputPassword3" required />
-                    </div> */}
+
                 </div>
                 <div>
                     <div className="col-sm-10 offset-sm-2 ">
@@ -130,20 +107,12 @@ const Loggedin = () => {
             </form>}
             {isLoading && <CircularProgress />}
             {user?.email && islogin ? <Alert severity="info">You are loggedin successfully</Alert> : null}
-            {user?.email && !islogin ? <Alert severity="info">You are registered successfully</Alert>: null}
+            {user?.email && !islogin ? <Alert severity="info">You are registered successfully</Alert> : null}
             {error && <Alert severity="error">{error}</Alert>}
             <br />
             <br />
             <br />
-            {/* <h2>Please Log in</h2> */}
-            {/* {user?.email || user.uid ?
-                <button onClick={handleSignOut} className='btn btn-primary m-2'>  Sign Out</button>
-                :
-                <div>
-                    <button onClick={signInUsingGoole} className='btn btn-primary m-2'> Google Sign in</button>
 
-                </div>
-            } */}
             <br />
 
             <br />
@@ -162,58 +131,93 @@ export default Loggedin;
 
 
 
+{/* <h3 className='text-primary my-2'>Please {islogin ? 'Login' : 'Register'}</h3>
+
+            <br />
+            <br /> */}
+
+// const verifyEmail = () => {
+//     sendEmailVerification(auth.currentUser)
+//         .then(result => {
+//             // Email verification sent!
+//             // ...
+//             // console.log(result);
+//         });
+// }
+
+// const navigate = useNavigate();
+
+// console.log(name, email, password);
+//     if (password.length < 6) {
+//         setError('Pasword must be 6')
+//         return;
+//     }
+//     if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+//         setError('Password must contain 2 uppercase')
+//         return;
+//     }
+//registerUser(email, password);
 
 
+// function processlogin(email, password) {
+//     signInWithEmailAndPassword(auth, email, password)
+//         .then(result => {
+//             // Signed in 
+//             const user = result.email;
+//             const password = result.password;
+//             // (user);
+//             createNewUser(email, password);
+//             setError('');
+//             // ...
 
+//             // if (!user.email) {
+//             //     setError('Wrong Mail')
+//             //     return;
+//             // }
+//             if (user.email) {
+//                 navigate('/home');
+//             }
+//         })
+//         .catch((error) => {
 
+//             const errorMessage = error.message;
+//             // (errorMessage);
+//             setError(errorMessage)
+//             // return
+//         })
+//         .finally(() => setIsLoading(false));
+// }
+// function createNewUser(email, password) {
+//     setIsLoading(true);
+//     createUserWithEmailAndPassword(auth, email, password)
+//         .then(result => {
+//             // Signed in 
+//             const user = result.user;
+//             // 
+//             setError('');
+//             // ...
+//             verifyEmail();
+//         })
+//         .catch((error) => {
 
+//             const errorMessage = error.message;
+//             setError(errorMessage);
+//             // ..
+//         })
+//         .finally(() => setIsLoading(false));
+// }
+// }
 
+{/* <h2>Please Log in</h2> */ }
+{/* {user?.email || user.uid ?
+                <button onClick={handleSignOut} className='btn btn-primary m-2'>  Sign Out</button>
+                :
+                <div>
+                    <button onClick={signInUsingGoole} className='btn btn-primary m-2'> Google Sign in</button>
 
- // function processlogin(email, password) {
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then(result => {
-    //             // Signed in 
-    //             const user = result.email;
-    //             const password = result.password;
-    //             // (user);
-    //             createNewUser(email, password);
-    //             setError('');
-    //             // ...
+                </div>
+            } */}
 
-    //             // if (!user.email) {
-    //             //     setError('Wrong Mail')
-    //             //     return;
-    //             // }
-    //             if (user.email) {
-    //                 navigate('/home');
-    //             }
-    //         })
-    //         .catch((error) => {
-
-    //             const errorMessage = error.message;
-    //             // (errorMessage);
-    //             setError(errorMessage)
-    //             // return
-    //         })
-    //         .finally(() => setIsLoading(false));
-    // }
-    // function createNewUser(email, password) {
-    //     setIsLoading(true);
-    //     createUserWithEmailAndPassword(auth, email, password)
-    //         .then(result => {
-    //             // Signed in 
-    //             const user = result.user;
-    //             // 
-    //             setError('');
-    //             // ...
-    //             verifyEmail();
-    //         })
-    //         .catch((error) => {
-
-    //             const errorMessage = error.message;
-    //             setError(errorMessage);
-    //             // ..
-    //         })
-    //         .finally(() => setIsLoading(false));
-    // }
-    // }
+{/* <div className="col-sm-10">
+                        <input onBlur={handlePasswordChange} type="password" placeholder='Enter Password' ref={passwordRef} className="form-control" id="inputPassword3" required />
+                    </div> */}

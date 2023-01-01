@@ -17,7 +17,7 @@ const RequiredAuth = ({ children }) => {
     const { user, isLoading } = useAuth();
     // const { user } = Usefirebase();
     // console.log(user);
-    const location = useLocation();
+    let location = useLocation();
 
     if (isLoading) {
         return <Loading></Loading>

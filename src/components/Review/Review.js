@@ -26,42 +26,36 @@ const Review = () => {
     return (
         <div className='add-service'>
             <h2>Please Give Your Review</h2>
-            {/* <Rating
-                initialRating={3}
-                emptySymbol="far fa-star"
-                fullSymbol="fas fa-star"
-            /> */}
 
-            {/* <form onSubmit={handleSubmit(onSubmit)}>
-                {/* <a>Name: {user?.displayName}</a> */}
-            {/* <option {...register("Name")} >{user?.displayName}</option> */}
-            {/* <input {...register("name")} value={user?.displayName} /> */}
-            {/* <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" /> */}
-            {/* <textarea {...register("description")} placeholder="Description" /> */}
-
-            {/* <input type="number" {...register("rating", { min: 1, max: 5 })} placeholder="Rating" /> */}
-            {/* <input {...register("img")} placeholder="Image URL" /> */}
-            {/* <input type="submit" />
-            </form> */}
 
 
             <form onSubmit={handleSubmit(onSubmit)} >
                 <input type="text" className="input input-bordered input-md w-full max-w-xs" {...register("name")} value={user?.displayName} />
                 {/* <textarea {...register("description")} placeholder="Description" /> */}
                 <textarea class="textarea textarea-bordered max-w-xs" {...register("description")} placeholder="Comment"></textarea>
-                <input type="number" {...register("rating", { min: 1, max: 5 })} placeholder="Rating" className="input input-bordered input-md w-full max-w-xs" />
+                <input type="number" {...register("rating", { min: 1, max: 5 })} placeholder="Rating (1-5)" className="input input-bordered input-md w-full max-w-xs" />
                 <input className='btn btn-secondary w-full max-w-xs' type="submit" />
             </form>
 
 
-            {/* <input type="text" placeholder="Type here" className="input input-bordered input-sm w-full max-w-xs block" />
+
+
+        </div >
+    );
+};
+
+export default Review;
+
+
+
+{/* <input type="text" placeholder="Type here" className="input input-bordered input-sm w-full max-w-xs block" />
 
 <input type="text" placeholder="Type here" className="input input-bordered input-md w-full max-w-xs" />
 
 <input type="text" placeholder="Type here" className="input input-bordered input-lg w-full max-w-xs" /> */}
 
 
-            {/* <form>
+{/* <form>
                 <div className="mb-6">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                     <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required></input>
@@ -80,10 +74,20 @@ const Review = () => {
             </form> */}
 
 
+{/* <Rating
+                initialRating={3}
+                emptySymbol="far fa-star"
+                fullSymbol="fas fa-star"
+            /> */}
 
+{/* <form onSubmit={handleSubmit(onSubmit)}>
+                {/* <a>Name: {user?.displayName}</a> */}
+{/* <option {...register("Name")} >{user?.displayName}</option> */ }
+{/* <input {...register("name")} value={user?.displayName} /> */ }
+{/* <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" /> */ }
+{/* <textarea {...register("description")} placeholder="Description" /> */ }
 
-        </div >
-    );
-};
-
-export default Review;
+{/* <input type="number" {...register("rating", { min: 1, max: 5 })} placeholder="Rating" /> */ }
+{/* <input {...register("img")} placeholder="Image URL" /> */ }
+{/* <input type="submit" />
+            </form> */}

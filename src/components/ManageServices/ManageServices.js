@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Alert } from '@mui/material';
 
 const ManageServices = () => {
-    const [services, setServices] = useState([])
+    const [services, setServices] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         fetch('https://arafatanjan-ecommerce.onrender.com/services')
-            // fetch('https://cryptic-tor-20048.herokuapp.com/services')
+
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
@@ -18,9 +20,10 @@ const ManageServices = () => {
             .then(data => {
                 // console.log(data);
                 if (data.deletedCount) {
-                    alert('deleted')
+                    // alert('deleted')
                     const remaining = services.filter(service => service._id !== id)
                     setServices(remaining);
+                    setIsLoading(true);
                 }
 
             })
@@ -34,6 +37,7 @@ const ManageServices = () => {
             </div>
             )
             }
+            {isLoading ? <Alert severity="info">successfully placed the order</Alert> : null}
         </div>
     )
 };

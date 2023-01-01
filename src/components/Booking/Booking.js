@@ -5,12 +5,13 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import useAuth from '../../Hook/useAuth';
+import { Alert } from '@mui/material';
 
 const Booking = () => {
     const { user } = useAuth();
     const { serviceId } = useParams();
     const [service, setService] = useState({})
-    // console.log(service);
+    const [isLoading, setIsLoading] = useState(false);
     const a = service.name;
     const b = user?.displayName;
     const email = user?.email;
@@ -40,8 +41,9 @@ const Booking = () => {
             .then(data => {
                 if (data.insertedId) {
                     // console.log(data.insertedId)
-                    alert('successfully placed the order.')
+                    // alert('successfully placed the order.')
                     e.target.reset();
+                    setIsLoading(true);
                 }
             });
         e.preventDefault();
@@ -107,7 +109,9 @@ const Booking = () => {
                 <button className="btn btn-primary" type="submit">
                     Submit
                 </button>
+
             </Form>
+            {isLoading ? <Alert severity="info">successfully placed the order</Alert> : null}
             {/* <Button variant="info">Booking Service {serviceId}</Button> */}
             <br />
             <br />

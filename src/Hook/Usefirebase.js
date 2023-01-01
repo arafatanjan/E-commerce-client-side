@@ -16,8 +16,8 @@ const Usefirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
     const [error, setError] = useState('');
-    // const navigate = useNavigate();
-    // const location = useLocation();
+    // let navigate = useNavigate();
+    // let location = useLocation();
     // let from = location.state?.from?.pathname || "/";
     const auth = getAuth();
 
@@ -44,7 +44,7 @@ const Usefirebase = () => {
         reset();
     }
 
-    const registerUser = (name, email, password, navigate) => {
+    const registerUser = (name, email, password) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {

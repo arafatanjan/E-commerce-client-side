@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 const AllOrder = () => {
     const [users, setUsers] = useState([]);
 
+    //not
+
     useEffect(() => {
         fetch('https://arafatanjan-ecommerce.onrender.com/orders')
             // fetch('https://cryptic-tor-20048.herokuapp.com/orders')

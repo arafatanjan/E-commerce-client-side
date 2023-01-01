@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hook/useAuth';
+import { Alert } from '@mui/material';
 const Users = () => {
     const [users, setUsers] = useState([]);
     const [isDeleted, setIsDeleted] = useState(null);
@@ -27,7 +28,7 @@ const Users = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('deleted successfully');
+                        // alert('deleted successfully');
                         setIsDeleted(true);
                         const remainingUsers = users.filter(pd => pd._id !== id)
                         setUsers(remainingUsers);
@@ -82,6 +83,7 @@ const Users = () => {
                     </li>)
                 }
             </ul>
+            {isDeleted ? <Alert severity="info">successfully deleted </Alert> : null}
         </div>
     )
 };
