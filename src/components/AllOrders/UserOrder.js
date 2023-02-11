@@ -16,7 +16,6 @@ const UserOrder = () => {
     useEffect(() => {
         if (user?.email) {
             fetch(`https://arafatanjan-ecommerce.onrender.com/orders/${user?.email}`)
-                // fetch(`https://cryptic-tor-20048.herokuapp.com/orders/${user?.email}`)
                 .then(res => res.json())
                 .then(data => setSingleorder(data))
         }

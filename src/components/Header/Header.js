@@ -36,15 +36,16 @@ const Header = () => {
 
                             {admin && <Link to="/dashboard/makeAdmin">Make Admin</Link>}
                             {admin && <Link to="/orders/update/:id">Manage All Orders</Link>}
+                            <NavLink to="/dashboard">Dashboard</NavLink>
 
 
-                            {user?.email && !admin ?
+                            {/* {user?.email && !admin ?
 
                                 <Link to="/dashboard">Dashboard</Link>
 
                                 :
                                 <NavLink as={Link} to=""></NavLink>
-                            }
+                            } */}
                             {user?.email && admin ?
                                 <Link to="/addservice">Add a Product</Link>
                                 :
