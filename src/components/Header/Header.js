@@ -25,15 +25,14 @@ const Header = () => {
                         <Nav className="me-auto">
                             <NavLink as={Link} to="/home#home" className='text-dark'>Home</NavLink>
                             <NavLink as={Link} to="/home#services" className='text-dark'>Products</NavLink>
+                            <Link to="/explore">More Products</Link>
                             {user?.email ?
                                 <Link to="/explore">More Products</Link>
                                 :
                                 <NavLink as={Link} to=""></NavLink>
                             }
 
-                            {/* <NavLink as={Link} to="/warranty">Warranty</NavLink> */}
-                            {/* <Link to="/">Home</Link> */}
-                            {/* <Link to="/dashboard/myorders">My Orders</Link> */}
+
 
                             {admin && <Link to="/dashboard/makeAdmin">Make Admin</Link>}
                             {admin && <Link to="/orders/update/:id">Manage All Orders</Link>}
@@ -80,5 +79,9 @@ const Header = () => {
         </div >
     );
 };
+
+{/* <NavLink as={Link} to="/warranty">Warranty</NavLink> */ }
+{/* <Link to="/">Home</Link> */ }
+{/* <Link to="/dashboard/myorders">My Orders</Link> */ }
 
 export default Header;
